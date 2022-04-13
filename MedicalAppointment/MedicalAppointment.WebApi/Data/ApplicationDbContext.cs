@@ -1,7 +1,7 @@
-﻿using MedicalAppointment.Data.Models;
+﻿using MedicalAppointment.WebApi.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MedicalAppointment.Data
+namespace MedicalAppointment.WebApi.Data
 {
     public class ApplicationDbContext : DbContext
     {
