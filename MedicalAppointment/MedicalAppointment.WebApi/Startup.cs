@@ -1,5 +1,6 @@
 using MedicalAppointment.WebApi.Data;
 using MedicalAppointment.WebApi.Infrastructure;
+using MedicalAppointment.WebApi.Services.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,11 +27,11 @@ namespace MedicalAppointment.WebApi
                 .AddDbContext<ApplicationDbContext>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicalAppointment.WebApi", Version = "v1" });
-            });
+
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,8 +42,6 @@ namespace MedicalAppointment.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MedicalAppointment.WebApi v1"));
             }
 
             app.UseHttpsRedirection();
