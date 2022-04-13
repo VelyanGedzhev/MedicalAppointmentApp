@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Linq;
 
 namespace MedicalAppointment.WebApi.Infrastructure
 {
@@ -32,7 +33,12 @@ namespace MedicalAppointment.WebApi.Infrastructure
         {
             var data = services.GetRequiredService<ApplicationDbContext>();
 
-            data.AddRange(new[] 
+            if (data.Users.Any())
+            {
+                return;
+            }
+
+            data.Users.AddRange(new[] 
             {
                 new AppUser { Username = "JohnMiller"},
                 new AppUser { Username = "StevenTaylor"},
