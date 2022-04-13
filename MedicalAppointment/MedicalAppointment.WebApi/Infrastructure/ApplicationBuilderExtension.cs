@@ -1,4 +1,5 @@
 ﻿using MedicalAppointment.WebApi.Data;
+using MedicalAppointment.WebApi.Data.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,8 @@ namespace MedicalAppointment.WebApi.Infrastructure
             var services = serviceScope.ServiceProvider;
 
             MigrateDatabase(services);
+            SeedUsers(services);
+
 
             return app;
         }
@@ -23,6 +26,19 @@ namespace MedicalAppointment.WebApi.Infrastructure
             var data = services.GetRequiredService<ApplicationDbContext>();
 
             data.Database.Migrate();
+        }
+
+        private static void SeedUsers(IServiceProvider services)
+        {
+            var data = services.GetRequiredService<ApplicationDbContext>();
+
+            data.AddRange(new[] 
+            {
+                new AppUser { Username = "JohnMiller"},
+                new AppUser { Username = "StevenTaylor"},
+            });
+
+            data.SaveChanges();
         }
     }
 }
