@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace MedicalAppointment.WebApi
 {
@@ -27,8 +26,8 @@ namespace MedicalAppointment.WebApi
                 .AddDbContext<ApplicationDbContext>(options => options
                 .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddCors();
             services.AddAutoMapper(typeof(Startup));
-
             services.AddControllers();
 
             services.AddTransient<IUserService, UserService>();
@@ -47,6 +46,8 @@ namespace MedicalAppointment.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
