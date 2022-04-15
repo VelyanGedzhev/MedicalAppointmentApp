@@ -16,7 +16,7 @@ namespace MedicalAppointment.WebApi.Infrastructure
             var services = serviceScope.ServiceProvider;
 
             MigrateDatabase(services);
-            SeedUsers(services);
+            //SeedUsers(services);
 
 
             return app;
