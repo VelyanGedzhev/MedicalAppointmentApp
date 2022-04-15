@@ -26,5 +26,18 @@ namespace MedicalAppointment.WebApi.Controllers
 
             return user;
         }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<AppUserModel>> Login(LoginModel userLogin)
+        {
+            var user = await this.userService.LoginUserAsync(userLogin);
+
+            if (user == null)
+            {
+                return BadRequest("Wrong Username or Password");
+            }
+
+            return user;
+        }
     }
 }

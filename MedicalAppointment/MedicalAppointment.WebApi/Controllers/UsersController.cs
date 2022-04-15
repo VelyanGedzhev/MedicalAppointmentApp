@@ -1,5 +1,6 @@
 ﻿using MedicalAppointment.WebApi.Services.Users;
 using MedicalAppointment.WebApi.Services.Users.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace MedicalAppointment.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<AppUserModel>> GetUser(int id)
         {
             return await this.userService.GetUserByIdAsync(id);
