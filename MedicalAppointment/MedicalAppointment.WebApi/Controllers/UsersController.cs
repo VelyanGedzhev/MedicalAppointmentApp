@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace MedicalAppointment.WebApi.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseController
     {
         private readonly IUserService userService;
 

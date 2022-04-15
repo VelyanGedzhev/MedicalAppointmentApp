@@ -8,5 +8,6 @@ namespace MedicalAppointment.WebApi.Services.Users
     {
         Task<AppUserModel> GetUserByIdAsync(int id);
         Task<IEnumerable<AppUserModel>> GetUsersAsync();
+        Task<AppUserModel> RegisterUserAsync(RegisterModel userRegister);
     }
 }
