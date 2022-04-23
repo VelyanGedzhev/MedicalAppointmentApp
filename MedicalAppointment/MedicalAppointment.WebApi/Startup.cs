@@ -1,4 +1,5 @@
 using MedicalAppointment.WebApi.Infrastructure;
+using MedicalAppointment.WebApi.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,10 +32,7 @@ namespace MedicalAppointment.WebApi
         {
             app.PrepareDatabase();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseHttpsRedirection();
 
