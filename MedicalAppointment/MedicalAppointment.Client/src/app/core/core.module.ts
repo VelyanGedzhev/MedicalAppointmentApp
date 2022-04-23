@@ -1,11 +1,14 @@
+import { RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+
 import { AccountService } from './services/account.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { AuthModule } from '../auth/auth.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -18,12 +21,18 @@ import { AuthModule } from '../auth/auth.module';
     CommonModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    AuthModule
+    AuthModule,
+    RouterModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    })
   ],
   providers: [],
   exports: [
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    ToastrModule,
+    BsDropdownModule
   ]
 })
 
