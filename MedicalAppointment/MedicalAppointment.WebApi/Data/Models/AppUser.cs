@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedicalAppointment.WebApi.Data.Models
 {
@@ -12,5 +13,7 @@ namespace MedicalAppointment.WebApi.Data.Models
         public byte[] PasswordHash { get; set; }
 
         public byte[] PasswordSalt { get; set; }
+
+        public IEnumerable<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
 }

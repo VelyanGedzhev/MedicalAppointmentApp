@@ -11,5 +11,7 @@ namespace MedicalAppointment.WebApi.Data
         }
 
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<Physician> Physicians { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }
