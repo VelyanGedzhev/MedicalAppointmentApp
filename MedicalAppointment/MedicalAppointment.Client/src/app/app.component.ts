@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from './core/models/user';
+import { AccountService } from './core/services/account.service';
 
 const apiUrl = environment.apiUrl;
 
@@ -14,18 +16,16 @@ export class AppComponent implements OnInit{
   title = 'MedicalAppointment.Client';
   users: any;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private accountService: AccountService) {
 
   }
 
   ngOnInit(): void {
-    this.getUsers();
+    this.setCurrentUser();
   }
 
-  getUsers(): void {
-    console.log("get users")
-     this.httpClient.get(`${apiUrl}/users`).subscribe(users => {
-      this.users = users;
-    });
+  setCurrentUser() {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    this.accountService.setCurrentUser(user);
   }
 }
