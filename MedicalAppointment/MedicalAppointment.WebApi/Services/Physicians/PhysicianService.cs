@@ -18,6 +18,18 @@ namespace MedicalAppointment.WebApi.Services.Physicians
             this.mapper = mapper;
         }
 
+        public async Task<PhysicianModel> GetPhysicianByNameAsync(string name)
+        {
+            var physician = await this.dbContext.Physicians.FirstOrDefaultAsync(p => p.FirstName.Contains(name) || p.LastName.Contains(name));
+
+            if (physician == null)
+            {
+                return null;
+            }
+
+            return this.mapper.Map<PhysicianModel>(physician);
+        }
+
         public async Task<IEnumerable<PhysicianModel>> GetPhysiciansAsync()
         {
             var physicians = await this.dbContext.Physicians.ToListAsync();

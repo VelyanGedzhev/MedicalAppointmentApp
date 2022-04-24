@@ -59,8 +59,8 @@ namespace MedicalAppointment.WebApi.Infrastructure
 
             data.Physicians.AddRange(new[]
             {
-                new Physician { FirstName = "John", LastName = "Miller", Gender = "Male", City = "Boston", Address = "Newbury Street", ExamPrice = 50, Speciality = "Cardiologist"},
-                new Physician { FirstName = "Ben", LastName = "Huston", Gender = "Male", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician"},
+                new Physician { FirstName = "John", LastName = "Miller", Gender = "Male", City = "Boston", Address = "Newbury Street", ExamPrice = 50, Speciality = "Cardiologist", ImageUrl = DataConstants.DefaultMaleImageUrl},
+                new Physician { FirstName = "Ben", LastName = "Huston", Gender = "Male", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultMaleImageUrl},
             });
 
             data.SaveChanges();

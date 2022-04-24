@@ -27,6 +27,9 @@ namespace MedicalAppointment.WebApi.Data.Models
         [Required]
         public string Speciality { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public IEnumerable<Appointment> Appointments { get; set; } = new List<Appointment>();
+
     }
 }

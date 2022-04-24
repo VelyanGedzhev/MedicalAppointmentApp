@@ -12,6 +12,7 @@ namespace MedicalAppointment.WebApi.Services.Physicians.Models
         public string Address { get; set; }
         public int ExamPrice { get; set; }
         public string Speciality { get; set; }
+        public string ImageUrl { get; set; }
         public IEnumerable<Appointment> Appointments { get; set; } = new List<Appointment>();
     }
 }

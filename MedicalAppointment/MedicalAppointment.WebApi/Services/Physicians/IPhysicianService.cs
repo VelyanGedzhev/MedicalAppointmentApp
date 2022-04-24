@@ -7,5 +7,7 @@ namespace MedicalAppointment.WebApi.Services.Physicians
     public interface IPhysicianService
     {
         Task<IEnumerable<PhysicianModel>> GetPhysiciansAsync();
+
+        Task<PhysicianModel> GetPhysicianByNameAsync(string name);
     }
 }

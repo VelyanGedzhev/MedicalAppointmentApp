@@ -38,6 +38,17 @@ namespace MedicalAppointment.WebApi.Services.Users
             return this.mapper.Map<IEnumerable<AppUserModel>>(users);
         }
 
+        public async Task<bool> SaveAllAsync()
+        {
+            return await this.dbContext.SaveChangesAsync() > 0;
+        }
+
+        public void Update(AppUserModel user)
+        {
+            var userToUpdate = this.mapper.Map<AppUser>(user);
+            this.dbContext.Entry(user).State = EntityState.Modified;
+        }
+
         public async Task<AppUserModel> LoginUserAsync(LoginModel userLogin)
         {
             var user = await this.dbContext.Users.FirstOrDefaultAsync(user => user.Username == userLogin.Username);
