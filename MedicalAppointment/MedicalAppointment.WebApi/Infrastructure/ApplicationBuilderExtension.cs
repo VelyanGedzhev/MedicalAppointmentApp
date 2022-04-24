@@ -17,8 +17,8 @@ namespace MedicalAppointment.WebApi.Infrastructure
 
             MigrateDatabase(services);
             SeedPhysicians(services);
+            SeedAppointments(services);
             //SeedUsers(services);
-
 
             return app;
         }
@@ -64,6 +64,28 @@ namespace MedicalAppointment.WebApi.Infrastructure
                 new Physician { Name = "Ben Huston", Gender = "Male", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultMaleImageUrl},
                 new Physician { Name = "Dominique McElligott", Gender = "Female", City = "New York", Address = "Cranberry Street", ExamPrice = 75, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultFemaleImageUrl},
                 new Physician { Name = "Erin Moriarty ", Gender = "Female", City = "New York", Address = "West 10th Street", ExamPrice = 60, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultFemaleImageUrl},
+            });
+
+            data.SaveChanges();
+        }
+
+        private static void SeedAppointments(IServiceProvider services)
+        {
+            var data = services.GetRequiredService<ApplicationDbContext>();
+
+            if (data.Appointments.Any())
+            {
+                return;
+            }
+
+            var user = data.Users.Find(1);
+            var physician1 = data.Physicians.Find(1);
+            var physician2 = data.Physicians.Find(2);
+
+            data.Appointments.AddRange(new[]
+            {
+                new Appointment { AppUserId = 1, AppUser = user, PhysicianId = 1, Physician = physician1, Date = DateTime.Now, Hour = DateTime.Now.Hour.ToString() },
+                new Appointment { AppUserId = 1, AppUser = user, PhysicianId = 2, Physician = physician2, Date = DateTime.Now.AddDays(1), Hour = DateTime.Now.Hour.ToString() },
             });
 
             data.SaveChanges();
