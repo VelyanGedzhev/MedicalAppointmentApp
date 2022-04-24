@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-image-wrapper">
+        <img class="card-img-top" src="{{physician.imageUrl}}" alt="Card image cap">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Dr. {{physician.lastName}}</h5>
+        <p class="card-text">Speciality: {{physician.speciality}}</p>
+        <ng-container *ngIf="(accountService.currentUser$ | async)">
+            <a routerLink="/book" class="btn btn-primary me-2">Book</a>
+            <a routerLink="/details" class="btn btn-info">Details</a>
+        </ng-container>
+        <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+            <hr>
+            <p class="text-warning">Sign in to book an appointment</p>
+            <a routerLink="/register" class="btn btn-primary">Register</a>
+        </ng-container>
+    </div>
+</div>

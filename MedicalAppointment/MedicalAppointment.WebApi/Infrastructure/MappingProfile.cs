@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MedicalAppointment.WebApi.Data.Models;
+using MedicalAppointment.WebApi.Services.Appointments.Models;
 using MedicalAppointment.WebApi.Services.Physicians.Models;
 using MedicalAppointment.WebApi.Services.Users.Models;
 
@@ -11,6 +12,7 @@ namespace MedicalAppointment.WebApi.Infrastructure
         {
             this.CreateMap<AppUser, AppUserModel>().ReverseMap();
             this.CreateMap<Physician, PhysicianModel>();
+            this.CreateMap<Appointment, AppointmentModel>();
         }
     }
 }

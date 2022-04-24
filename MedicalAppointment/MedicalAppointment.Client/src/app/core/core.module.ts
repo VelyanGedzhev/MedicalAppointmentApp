@@ -11,6 +11,7 @@ import { HomeComponent } from '../shared/home/home.component';
 import { AuthModule } from '../auth/auth.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { PhysicianService } from './services/physician.service';
 
 
 
@@ -42,6 +43,7 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [ 
         AccountService,
+        PhysicianService,
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
       ]
     } 
