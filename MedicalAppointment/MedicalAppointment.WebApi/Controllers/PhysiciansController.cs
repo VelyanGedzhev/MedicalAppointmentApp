@@ -16,7 +16,7 @@ namespace MedicalAppointment.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<PhysicianModel>> GetUsers()
+        public async Task<IEnumerable<PhysicianModel>> GetPhysicians()
         {
             return await this.physicianService.GetPhysiciansAsync();
         }

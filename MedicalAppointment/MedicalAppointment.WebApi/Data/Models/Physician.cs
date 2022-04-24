@@ -14,6 +14,9 @@ namespace MedicalAppointment.WebApi.Data.Models
         public string LastName { get; set; }
 
         [Required]
+        public string Gender { get; set; }
+
+        [Required]
         public string City { get; set; }
 
         [Required]

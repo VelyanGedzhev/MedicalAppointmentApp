@@ -17,7 +17,7 @@ namespace MedicalAppointment.WebApi.Infrastructure
 
             MigrateDatabase(services);
             SeedPhysicians(services);
-            SeedUsers(services);
+            //SeedUsers(services);
 
 
             return app;
@@ -59,8 +59,8 @@ namespace MedicalAppointment.WebApi.Infrastructure
 
             data.Physicians.AddRange(new[]
             {
-                new Physician { FirstName = "John", LastName = "Miller", City = "Boston", Address = "Newbury Street", ExamPrice = 50, Speciality = "Cardiologist"},
-                new Physician { FirstName = "Ben", LastName = "Huston", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician"},
+                new Physician { FirstName = "John", LastName = "Miller", Gender = "Male", City = "Boston", Address = "Newbury Street", ExamPrice = 50, Speciality = "Cardiologist"},
+                new Physician { FirstName = "Ben", LastName = "Huston", Gender = "Male", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician"},
             });
 
             data.SaveChanges();

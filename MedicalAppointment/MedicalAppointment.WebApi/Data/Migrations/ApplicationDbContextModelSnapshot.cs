@@ -48,7 +48,7 @@ namespace MedicalAppointment.WebApi.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AppUserId")
+                    b.Property<int>("AppUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -56,9 +56,6 @@ namespace MedicalAppointment.WebApi.Data.Migrations
 
                     b.Property<string>("Hour")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PatientId")
-                        .HasColumnType("int");
 
                     b.Property<int>("PhysicianId")
                         .HasColumnType("int");
@@ -94,6 +91,10 @@ namespace MedicalAppointment.WebApi.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -109,15 +110,21 @@ namespace MedicalAppointment.WebApi.Data.Migrations
 
             modelBuilder.Entity("MedicalAppointment.WebApi.Data.Models.Appointment", b =>
                 {
-                    b.HasOne("MedicalAppointment.WebApi.Data.Models.AppUser", null)
+                    b.HasOne("MedicalAppointment.WebApi.Data.Models.AppUser", "AppUser")
                         .WithMany("Appointments")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("MedicalAppointment.WebApi.Data.Models.Physician", null)
+                    b.HasOne("MedicalAppointment.WebApi.Data.Models.Physician", "Physician")
                         .WithMany("Appointments")
                         .HasForeignKey("PhysicianId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Physician");
                 });
 
             modelBuilder.Entity("MedicalAppointment.WebApi.Data.Models.AppUser", b =>
