@@ -24,8 +24,6 @@ export class HeaderComponent implements OnInit {
   login() {
     this.accountService.login(this.model).subscribe(response => {
       this.router.navigateByUrl('/physicians')
-    }, error => {
-      this.toastr.error(error.error);
     });
   }
 
