@@ -1,4 +1,4 @@
-﻿using MedicalAppointment.WebApi.Data.Models;
+﻿using MedicalAppointment.WebApi.Services.Appointments.Models;
 using System.Collections.Generic;
 
 namespace MedicalAppointment.WebApi.Services.Physicians.Models
@@ -13,6 +13,6 @@ namespace MedicalAppointment.WebApi.Services.Physicians.Models
         public int ExamPrice { get; set; }
         public string Speciality { get; set; }
         public string ImageUrl { get; set; }
-        public IEnumerable<Appointment> Appointments { get; set; } = new List<Appointment>();
+        public IEnumerable<AppointmentModel> Appointments { get; set; } = new List<AppointmentModel>();
     }
 }
