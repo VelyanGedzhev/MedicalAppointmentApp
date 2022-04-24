@@ -7,11 +7,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AccountService } from './services/account.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { HomeComponent } from '../shared/home/home.component';
 import { AuthModule } from '../auth/auth.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { PhysicianService } from './services/physician.service';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 
 
@@ -44,7 +44,8 @@ export class CoreModule {
       providers: [ 
         AccountService,
         PhysicianService,
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
       ]
     } 
   }

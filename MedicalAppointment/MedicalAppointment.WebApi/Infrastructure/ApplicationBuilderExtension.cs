@@ -59,8 +59,11 @@ namespace MedicalAppointment.WebApi.Infrastructure
 
             data.Physicians.AddRange(new[]
             {
-                new Physician { FirstName = "John", LastName = "Miller", Gender = "Male", City = "Boston", Address = "Newbury Street", ExamPrice = 50, Speciality = "Cardiologist", ImageUrl = DataConstants.DefaultMaleImageUrl},
-                new Physician { FirstName = "Ben", LastName = "Huston", Gender = "Male", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultMaleImageUrl},
+                new Physician { Name = "John Miller", Gender = "Male", City = "Boston", Address = "Newbury Street", ExamPrice = 50, Speciality = "Cardiologist", ImageUrl = DataConstants.DefaultMaleImageUrl},
+                new Physician { Name = "Annie Cash", Gender = "Female", City = "Los Angeles", Address = "Hollywood Boulevard", ExamPrice = 100, Speciality = "Oncologist", ImageUrl = DataConstants.DefaultFemaleImageUrl},
+                new Physician { Name = "Ben Huston", Gender = "Male", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultMaleImageUrl},
+                new Physician { Name = "Dominique McElligott", Gender = "Female", City = "New York", Address = "Cranberry Street", ExamPrice = 75, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultFemaleImageUrl},
+                new Physician { Name = "Erin Moriarty ", Gender = "Female", City = "New York", Address = "West 10th Street", ExamPrice = 60, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultFemaleImageUrl},
             });
 
             data.SaveChanges();

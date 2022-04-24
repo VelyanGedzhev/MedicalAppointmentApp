@@ -1,13 +1,13 @@
 <div class="card" style="width: 18rem;">
     <div class="card-image-wrapper">
-        <img class="card-img-top" src="{{physician.imageUrl}}" alt="Card image cap">
+        <img class="card-img-top" src="{{physician.imageUrl}}" alt="{{physician.name}}">
     </div>
     <div class="card-body">
-        <h5 class="card-title">Dr. {{physician.lastName}}</h5>
+        <h5 class="card-title">Dr. {{physician.name}}</h5>
         <p class="card-text">Speciality: {{physician.speciality}}</p>
         <ng-container *ngIf="(accountService.currentUser$ | async)">
             <a routerLink="/book" class="btn btn-primary me-2">Book</a>
-            <a routerLink="/details" class="btn btn-info">Details</a>
+            <a routerLink="/physicians/{{physician.id}}" class="btn btn-info">Details</a>
         </ng-container>
         <ng-container *ngIf="(accountService.currentUser$ | async) === null">
             <hr>

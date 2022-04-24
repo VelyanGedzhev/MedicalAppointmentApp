@@ -17,7 +17,7 @@ export class PhysicianService {
     return this.httpClient.get<Physician[]>(`${this.baseUrl}`);
   }
 
-  getPhysicinaByName(name: string): Observable<Physician> {
+  getPhysician(name: string): Observable<Physician> {
     return this.httpClient.get<Physician>(`${this.baseUrl}/${name}`);
   }
 }
