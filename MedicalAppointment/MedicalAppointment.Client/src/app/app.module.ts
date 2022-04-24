@@ -11,6 +11,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { PhysiciansModule } from './features/physicians/physicians.module';
 import { AuthModule } from './auth/auth.module';
 import { AppointmentsModule } from './features/appointments/appointments.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AppointmentsModule } from './features/appointments/appointments.module'
     PhysiciansModule,
     AuthModule,
     AppointmentsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [

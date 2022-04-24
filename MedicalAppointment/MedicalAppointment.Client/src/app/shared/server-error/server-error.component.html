@@ -1,0 +1,15 @@
+<div class="container">
+    <h4>Internal server error!</h4>
+    <ng-container *ngIf="error">
+        <h5 class="text-danger">Error: {{error.message}}</h5>
+        <p class="font-weight-bold">If you see this, it's probably a problem in Web API app. Things to check:</p>
+        <ol>
+            <li>Open Chrome dev tools</li>
+            <li>Inspect the network tab</li>
+            <li>Check for failing requests</li>
+            <li>Examine the request URL to make sure it's correct</li>
+            <li>Reproduce the error in postman (could rule out Angular as the problem)</li>
+        </ol>
+        <code class="mt-5" style="background-color: antiquewhite;">{{error.details}}</code>
+    </ng-container>
+</div>
