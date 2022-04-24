@@ -21,10 +21,10 @@ namespace MedicalAppointment.WebApi.Controllers
             return await this.physicianService.GetPhysiciansAsync();
         }
 
-        [HttpGet("{name}")]
-        public async Task<PhysicianModel> GetPhysicianByName(string name)
+        [HttpGet("{id}")]
+        public async Task<PhysicianModel> GetPhysicianById(int id)
         {
-            return await this.physicianService.GetPhysicianByNameAsync(name);
+            return await this.physicianService.GetPhysicianByIdAsync(id);
         }
     }
 }
