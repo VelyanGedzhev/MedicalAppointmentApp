@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, ReplaySubject } from 'rxjs';
+import { map, Observable, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Appointment } from '../models/appointment';
 import { User } from '../models/user';
@@ -10,15 +10,19 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AppointmentService {
-  baseUrl = `${environment.apiUrl}/appointments/book`;
+  baseUrl = `${environment.apiUrl}/appointments`;
   private currentUserSource = new ReplaySubject<User>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
+  getAppointments(id: number): Observable<Appointment[]> {
+    return this.httpClient.get<Appointment[]>(`${this.baseUrl}/${id}`);
+  }
+
   book(model: any) {
     console.log(model);
-    return this.httpClient.post(`${this.baseUrl}`, model).pipe(
+    return this.httpClient.post(`${this.baseUrl}/book`, model).pipe(
       map((appointment: Appointment) => {
         if (appointment) {
         }

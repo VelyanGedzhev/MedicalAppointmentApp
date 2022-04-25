@@ -1,1 +1,3 @@
-<p>appointments-list works!</p>
+<div class="list-group">
+    <a *ngFor="let appointment of appointments" routerLink="appointment/{{appointment.id}}" class="list-group-item list-group-item-action">{{appointment.physicianName}}</a>
+</div>
