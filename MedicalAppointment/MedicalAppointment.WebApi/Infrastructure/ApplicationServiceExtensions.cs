@@ -1,4 +1,5 @@
 ﻿using MedicalAppointment.WebApi.Data;
+using MedicalAppointment.WebApi.Services.Appointments;
 using MedicalAppointment.WebApi.Services.Physicians;
 using MedicalAppointment.WebApi.Services.Tokens;
 using MedicalAppointment.WebApi.Services.Users;
@@ -19,6 +20,7 @@ namespace MedicalAppointment.WebApi.Infrastructure
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPhysicianService, PhysicianService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
 
             return services;
         }
