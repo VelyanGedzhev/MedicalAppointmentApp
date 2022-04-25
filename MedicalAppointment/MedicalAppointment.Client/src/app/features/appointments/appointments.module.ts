@@ -6,6 +6,7 @@ import { AppointmentsListComponent } from './appointments-list/appointments-list
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 import { AppointmentRoutingModule } from './appointments-routing.module';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,6 +20,8 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
   imports: [
     CommonModule,
     AppointmentRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BsDatepickerModule.forRoot()
   ]
 })

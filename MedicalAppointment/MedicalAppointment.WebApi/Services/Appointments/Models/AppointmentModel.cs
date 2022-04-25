@@ -11,6 +11,5 @@ namespace MedicalAppointment.WebApi.Services.Appointments.Models
         public int PhysicianId { get; set; }
         public PhysicianModel Physician { get; set; }
         public DateTime Date { get; set; }
-        public string Hour { get; set; }
     }
 }

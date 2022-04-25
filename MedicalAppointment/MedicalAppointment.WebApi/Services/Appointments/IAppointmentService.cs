@@ -8,5 +8,6 @@ namespace MedicalAppointment.WebApi.Services.Appointments
     {
         Task<AppointmentModel> GetAppointmentByIdAsync(int id);
         Task<IEnumerable<AppointmentModel>> GetAppointmentsByUserIdAsync(int id);
+        Task<AppointmentModel> BookAppointmentAsync(AppointmentModel appointment);
     }
 }

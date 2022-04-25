@@ -21,5 +21,11 @@ namespace MedicalAppointment.WebApi.Controllers
         {
             return await this.appointmentService.GetAppointmentsByUserIdAsync(id);
         }
+
+        [HttpPost("book")]
+        public async Task<ActionResult<AppointmentModel>> Book(AppointmentModel appointment)
+        {
+            return await this.appointmentService.BookAppointmentAsync(appointment);
+        }
     }
 }
