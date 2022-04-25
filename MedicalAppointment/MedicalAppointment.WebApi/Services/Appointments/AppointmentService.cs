@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MedicalAppointment.WebApi.Data;
 using MedicalAppointment.WebApi.Data.Models;
 using MedicalAppointment.WebApi.Services.Appointments.Models;
@@ -31,9 +32,13 @@ namespace MedicalAppointment.WebApi.Services.Appointments
 
         public async Task<IEnumerable<AppointmentModel>> GetAppointmentsByUserIdAsync(int id)
         {
-            var appointments = await this.dbContext.Appointments.Where(ap => ap.AppUserId == id).ToListAsync();
+            var appointments = await this.dbContext.Appointments.Where(ap => ap.AppUserId == id)
+                .ProjectTo<AppointmentModel>(this.mapper.ConfigurationProvider)
+                .ToListAsync();
 
-            return this.mapper.Map<IEnumerable<AppointmentModel>>(appointments);
+            return appointments;
+
+            //return this.mapper.Map<IEnumerable<AppointmentModel>>(appointments);
         }
 
         public async Task<AppointmentModel> BookAppointmentAsync(AppointmentModel appointment)

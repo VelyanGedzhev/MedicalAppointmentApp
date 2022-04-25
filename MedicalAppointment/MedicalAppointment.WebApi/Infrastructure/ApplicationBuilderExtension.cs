@@ -17,7 +17,7 @@ namespace MedicalAppointment.WebApi.Infrastructure
 
             MigrateDatabase(services);
             SeedPhysicians(services);
-            SeedAppointments(services);
+            //SeedAppointments(services);
             //SeedUsers(services);
 
             return app;
@@ -62,7 +62,6 @@ namespace MedicalAppointment.WebApi.Infrastructure
                 new Physician { Name = "John Miller", Gender = "Male", City = "Boston", Address = "Newbury Street", ExamPrice = 50, Speciality = "Cardiologist", ImageUrl = DataConstants.DefaultMaleImageUrl},
                 new Physician { Name = "Annie Cash", Gender = "Female", City = "Los Angeles", Address = "Hollywood Boulevard", ExamPrice = 100, Speciality = "Oncologist", ImageUrl = DataConstants.DefaultFemaleImageUrl},
                 new Physician { Name = "Ben Huston", Gender = "Male", City = "New York", Address = "Minetta Street", ExamPrice = 45, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultMaleImageUrl},
-                new Physician { Name = "Dominique McElligott", Gender = "Female", City = "New York", Address = "Cranberry Street", ExamPrice = 75, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultFemaleImageUrl},
                 new Physician { Name = "Erin Moriarty ", Gender = "Female", City = "New York", Address = "West 10th Street", ExamPrice = 60, Speciality = "Familly Physician", ImageUrl = DataConstants.DefaultFemaleImageUrl},
             });
 
@@ -84,8 +83,8 @@ namespace MedicalAppointment.WebApi.Infrastructure
 
             data.Appointments.AddRange(new[]
             {
-                new Appointment { AppUserId = 1, AppUser = user, PhysicianId = 1, Physician = physician1, Date = DateTime.Now, Hour = DateTime.Now.Hour.ToString() },
-                new Appointment { AppUserId = 1, AppUser = user, PhysicianId = 2, Physician = physician2, Date = DateTime.Now.AddDays(1), Hour = DateTime.Now.Hour.ToString() },
+                new Appointment { AppUserId = 1, AppUser = user, PhysicianId = 1, Physician = physician1, Date = DateTime.Now },
+                new Appointment { AppUserId = 1, AppUser = user, PhysicianId = 2, Physician = physician2, Date = DateTime.Now.AddDays(1) },
             });
 
             data.SaveChanges();

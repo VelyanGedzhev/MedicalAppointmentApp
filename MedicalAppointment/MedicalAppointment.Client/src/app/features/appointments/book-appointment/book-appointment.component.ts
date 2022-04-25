@@ -34,7 +34,8 @@ export class BookAppointmentComponent implements OnInit {
     const app: Appointment = {
       appUserId: JSON.parse(localStorage.getItem('user')).id,
       date: this.bookForm.value.date,
-      physicianId: Number(this.route.snapshot.paramMap.get('id'))
+      physicianId: Number(this.route.snapshot.paramMap.get('id')),
+      physicianName: ''
     };
 
     this.appointmentService.book(app).subscribe(response => {
