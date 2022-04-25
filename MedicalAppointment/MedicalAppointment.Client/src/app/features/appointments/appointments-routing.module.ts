@@ -10,6 +10,9 @@ const routes: Routes = [
   },
   {
       path: 'appointments/:id', component: AppointmentDetailsComponent
+  },
+  {
+    path: 'book/:id', component: BookAppointmentComponent
   }
 ];
 

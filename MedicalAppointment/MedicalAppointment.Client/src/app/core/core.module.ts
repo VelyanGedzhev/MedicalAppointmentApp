@@ -12,6 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { PhysicianService } from './services/physician.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { AppointmentService } from './services/appointment.service';
 
 
 
@@ -44,6 +45,7 @@ export class CoreModule {
       providers: [ 
         AccountService,
         PhysicianService,
+        AppointmentService,
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
       ]
