@@ -1,6 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -13,12 +13,14 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { PhysicianService } from './services/physician.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { AppointmentService } from './services/appointment.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { AppointmentService } from './services/appointment.service';
   exports: [
     HeaderComponent,
     ToastrModule,
-    BsDropdownModule
+    BsDropdownModule,
+    FooterComponent
   ]
 })
 
@@ -46,6 +49,7 @@ export class CoreModule {
         AccountService,
         PhysicianService,
         AppointmentService,
+        DatePipe,
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
       ]

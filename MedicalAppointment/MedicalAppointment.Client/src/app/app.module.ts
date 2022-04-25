@@ -12,6 +12,7 @@ import { PhysiciansModule } from './features/physicians/physicians.module';
 import { AuthModule } from './auth/auth.module';
 import { AppointmentsModule } from './features/appointments/appointments.module';
 import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SharedModule } from './shared/shared.module';
   providers: [],
   bootstrap: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class AppModule { }

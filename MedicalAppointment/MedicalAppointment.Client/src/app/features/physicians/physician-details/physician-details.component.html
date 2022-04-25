@@ -1,11 +1,11 @@
 <ng-container *ngIf="physician">
-    <div class="jumbotron offset-lg-4 col-lg-8 col-sm-12">
+    <div class="jumbotron offset-lg-4 col-lg-6 col-sm-12">
         <div class="row">
             <div class="col">
                 <div class="card" style="width: 22rem;">
-                    <img class="card-img-top" src="{{physician.imageUrl}}" alt="{{physician.name}}">
+                    <img class="card-img-top" style="width: 18rem; align-self: center;" src="{{physician.imageUrl}}" alt="{{physician.name}}">
                     <div class="card-body">
-                        <h5 class="card-title">Dr {{physician.name}}</h5>
+                        <h5 class="card-title text-center">Dr {{physician.name}}</h5>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">City: {{physician.city}}, Address: {{physician.address}}</li>
@@ -20,26 +20,4 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="jumbotron offset-lg-4 col-lg-8 col-sm-12">
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 18rem; ">
-                    <img class="card-img-top" src="@Model.ImageUrl">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">@Model.FullName</h5>
-                        <p>@nameof(Model.Speciality): @Model.Speciality</p>
-                        <p>Works with children: @Model.IsWorkingWithChildren</p>
-                        <p>Examination Price: <i class="bi bi-currency-euro"></i>@Model.ExaminationPrice</p>
-                        <p>@nameof(Model.Gender): @Model.Gender</p>
-                        <p>@nameof(Model.Address): @Model.Address</p>
-                        <p class="lead">
-                            <a class="btn btn-primary btn-lg" role="button" asp-controller="Appointments"
-                                asp-action="Book" asp-route-physicianId="@Model.Id">Book appointment</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </ng-container>
