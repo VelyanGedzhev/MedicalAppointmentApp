@@ -4,14 +4,14 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">Dr. {{physician.name}}</h5>
-        <p class="card-text">Speciality: {{physician.speciality}}</p>
+        <p class="card-text"><strong>Speciality</strong>: {{physician.speciality}}</p>
         <ng-container *ngIf="(accountService.currentUser$ | async)">
             <a routerLink="/book/{{physician.id}}" class="btn btn-primary me-2">Book</a>
             <a routerLink="/physicians/{{physician.id}}" class="btn btn-info">Details</a>
         </ng-container>
         <ng-container *ngIf="(accountService.currentUser$ | async) === null">
             <hr>
-            <p class="text-warning">Sign in to book an appointment</p>
+            <p class="text-secondary"><strong>Sign in to book an appointment</strong></p>
             <a routerLink="/register" class="btn btn-warning">Register</a>
         </ng-container>
     </div>
