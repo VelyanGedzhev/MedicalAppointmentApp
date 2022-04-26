@@ -16,12 +16,14 @@ namespace MedicalAppointment.WebApi.Controllers
             this.appointmentService = appointmentService;
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IEnumerable<AppointmentModel>> GetAppointments(int id)
         {
             return await this.appointmentService.GetAppointmentsByUserIdAsync(id);
         }
 
+        [Authorize]
         [HttpPost("book")]
         public async Task<ActionResult<AppointmentModel>> Book(AppointmentModel appointment)
         {
