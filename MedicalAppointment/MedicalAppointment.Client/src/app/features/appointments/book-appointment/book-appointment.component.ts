@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment } from 'src/app/core/models/appointment';
 import { AppointmentService } from 'src/app/core/services/appointment.service';
 
@@ -16,7 +16,10 @@ export class BookAppointmentComponent implements OnInit {
   maxDate = new Date();
   minDate = new Date();
 
-  constructor(private appointmentService: AppointmentService, private route: ActivatedRoute) { }
+  constructor(
+    private appointmentService: AppointmentService, 
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.minDate.setDate(this.minDate.getDate() - 1);
@@ -38,7 +41,8 @@ export class BookAppointmentComponent implements OnInit {
       physicianName: ''
     };
 
-    this.appointmentService.book(app).subscribe(response => {
-    });
+    this.appointmentService.book(app).subscribe();
+
+    this.router.navigateByUrl('/appointments');
   }
 }

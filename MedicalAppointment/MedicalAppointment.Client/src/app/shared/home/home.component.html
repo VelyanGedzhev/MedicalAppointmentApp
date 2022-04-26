@@ -4,14 +4,14 @@
         <hr>
         <p class="lead">Join and book your appointment now!</p>
         <div *ngIf="(accountService.currentUser$ | async) === null" class="text-center">
-            <a routerLink="/register" (click)="registerToggle()" class="btn btn-primary mb-2">Register</a>
+            <a routerLink="/register" class="btn btn-warning mb-2">Register</a>
         </div>
     </div>
 
     <div *ngIf="(accountService.currentUser$ | async)" class="container">
         <div class="row justify-content-center">
             <div class="col-4">
-                <app-register (cancelRegister)="cancelRegisterMode()"></app-register>
+                <app-register></app-register>
             </div>
         </div>
     </div>

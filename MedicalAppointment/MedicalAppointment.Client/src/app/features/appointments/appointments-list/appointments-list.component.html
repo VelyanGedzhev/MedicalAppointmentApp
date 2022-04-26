@@ -1,7 +1,9 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 mt-4" *ngFor="let appointment of appointments">
-            <app-appointment-details [appointment]="appointment"></app-appointment-details>
+<ng-container *ngIf="appointments">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-4" *ngFor="let appointment of appointments">
+                <app-appointment-details [appointment]="appointment"></app-appointment-details>
+            </div>
         </div>
     </div>
-</div>
+</ng-container>
