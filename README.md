@@ -32,7 +32,7 @@ When starting for a first time a sample physicians will be seeded.
 - Microsoft SQL Server
 - AutoMapper
 
-**Back-end**
+**Client-side**
 - Angular 13
 - Bootstrap 5.1.3
 - Bootswatch 5.1.3
