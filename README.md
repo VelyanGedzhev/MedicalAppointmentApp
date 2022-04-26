@@ -36,5 +36,5 @@ When starting for a first time a sample physicians will be seeded.
 - Angular 13
 - Bootstrap 5.1.3
 - Bootswatch 5.1.3
-- Fontawesome 4.7.0
+- Font Awesome 4.7.0
 - Toastr
