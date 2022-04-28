@@ -6,11 +6,12 @@ namespace MedicalAppointment.WebApi.Services.Users
 {
     public interface IUserService
     {
-        Task<AppUserModel> GetUserByIdAsync(int id);
-        Task<IEnumerable<AppUserModel>> GetUsersAsync();
-        void Update(AppUserModel user);
+        Task<UserModel> GetUserByIdAsync(int id);
+        Task<IEnumerable<UserModel>> GetUsersAsync();
+        void Update(UserModel user);
         Task<bool> SaveAllAsync();
-        Task<AppUserModel> LoginUserAsync(LoginModel userLogin);
-        Task<AppUserModel> RegisterUserAsync(RegisterModel userRegister);
+        Task<UserModel> LoginUserAsync(UserLoginModel loginModel);
+        Task<UserModel> RegisterUserAsync(UserRegisterModel registerModel);
+        Task<bool> UpdateUserAsync(UserEditModel editModel, string username);
     }
 }

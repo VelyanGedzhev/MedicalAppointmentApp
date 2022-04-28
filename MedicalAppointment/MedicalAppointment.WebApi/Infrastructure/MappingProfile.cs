@@ -10,9 +10,10 @@ namespace MedicalAppointment.WebApi.Infrastructure
     {
         public MappingProfile()
         {
-            this.CreateMap<AppUser, AppUserModel>().ReverseMap();
+            this.CreateMap<AppUser, UserModel>().ReverseMap();
             this.CreateMap<Physician, PhysicianModel>();
             this.CreateMap<Appointment, AppointmentModel>();
+            this.CreateMap<UserEditModel, AppUser>();
         }
     }
 }

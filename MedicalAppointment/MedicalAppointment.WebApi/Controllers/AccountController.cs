@@ -1,6 +1,8 @@
 ﻿using MedicalAppointment.WebApi.Services.Users;
 using MedicalAppointment.WebApi.Services.Users.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MedicalAppointment.WebApi.Controllers
@@ -15,9 +17,9 @@ namespace MedicalAppointment.WebApi.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<AppUserModel>> Register(RegisterModel userRegister)
+        public async Task<ActionResult<UserModel>> Register(UserRegisterModel registerModel)
         {
-            var user = await this.userService.RegisterUserAsync(userRegister);
+            var user = await this.userService.RegisterUserAsync(registerModel);
 
             if (user == null)
             {
@@ -28,9 +30,9 @@ namespace MedicalAppointment.WebApi.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<AppUserModel>> Login(LoginModel userLogin)
+        public async Task<ActionResult<UserModel>> Login(UserLoginModel loginModel)
         {
-            var user = await this.userService.LoginUserAsync(userLogin);
+            var user = await this.userService.LoginUserAsync(loginModel);
 
             if (user == null)
             {
@@ -38,6 +40,22 @@ namespace MedicalAppointment.WebApi.Controllers
             }
 
             return user;
+        }
+
+        [HttpPut]
+        [Authorize]
+        public async Task<ActionResult> UpdateUser(UserEditModel editModel)
+        {
+            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var result = await this.userService.UpdateUserAsync(editModel, username);
+
+            if (!result)
+            {
+                return BadRequest("Failed to update user");
+            }
+
+            return NoContent();
         }
     }
 }

@@ -9,10 +9,10 @@ const routes: Routes = [
       path: 'appointments', component: AppointmentsListComponent, canActivate: [AuthGuard]
   },
   {
-      path: 'appointments/:id', component: AppointmentDetailsComponent
+      path: 'appointments/:id', component: AppointmentDetailsComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'book/:id', component: BookAppointmentComponent
+    path: 'book/:id', component: BookAppointmentComponent, canActivate: [AuthGuard]
   }
 ];
 

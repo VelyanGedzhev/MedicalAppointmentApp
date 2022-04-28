@@ -18,13 +18,13 @@ namespace MedicalAppointment.WebApi.Controllers
 
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<AppUserModel>> GetUser(int id)
+        public async Task<ActionResult<UserModel>> GetUser(int id)
         {
             return await this.userService.GetUserByIdAsync(id);
         }
 
         [HttpGet]
-        public async Task<IEnumerable<AppUserModel>> GetUsers()
+        public async Task<IEnumerable<UserModel>> GetUsers()
         {
             return await this.userService.GetUsersAsync();
         }

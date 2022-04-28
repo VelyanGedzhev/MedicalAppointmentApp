@@ -7,6 +7,25 @@
         <input type="text" class="form-control mb-2" name="username" [(ngModel)]="model.username" placeholder="Johnny...">
       </div>
       <div class="form-group">
+        <label>Age</label>
+        <input type="text" class="form-control mb-2" name="age" [(ngModel)]="model.age" placeholder="29">
+      </div>
+      <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio"name="gender" [(ngModel)]="model.gender" value="Male">
+              <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" [(ngModel)]="model.gender" value="Female">
+              <label class="form-check-label" >Female</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-group">
         <label>Password</label>
         <input type="password" class="form-control mb-2" name="password" [(ngModel)]="model.password" placeholder="*************">
       </div>

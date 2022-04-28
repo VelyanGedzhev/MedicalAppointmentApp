@@ -10,6 +10,11 @@ namespace MedicalAppointment.WebApi.Data.Models
         [Required]
         public string Username { get; set; }
 
+        public int Age { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+
         public byte[] PasswordHash { get; set; }
 
         public byte[] PasswordSalt { get; set; }

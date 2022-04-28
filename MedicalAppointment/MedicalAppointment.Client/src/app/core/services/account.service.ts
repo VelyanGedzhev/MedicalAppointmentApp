@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { EditUser } from '../models/editUser';
 import { User } from '../models/user';
 
 @Injectable({
@@ -49,5 +50,9 @@ export class AccountService {
 
   setCurrentUser(user: User) {
     this.currentUserSource.next(user);
+  }
+
+  editUser(user: EditUser){
+    return this.httpClient.put(this.baseUrl, user);
   }
 }

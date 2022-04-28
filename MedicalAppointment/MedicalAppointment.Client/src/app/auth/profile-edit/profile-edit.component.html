@@ -1,0 +1,41 @@
+<div class="row" *ngIf="user">
+    <div class="col-4 offset-1">
+        <h1>Your profile</h1>
+    </div>
+    <div class="col-6">
+        <div class="alert alert-info" *ngIf="editForm.dirty">
+            <strong>Information:</strong> You've about to made changes. All unsaved changes will be lost.
+        </div>
+    </div>
+    <div class="col-4 offset-1">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title me-2"><i class="fa fa-user text-info"></i> {{user.username}}</h5>
+                <h6 class="card-subtitle mb-2 mt-4 text-muted">Age: {{user.age}}</h6>
+                <p class="card-text">Gender: {{user.gender}}</p>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-primary btn-block mt-2 mb-2">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <form id="editForm" #editForm="ngForm" (ngSubmit)="editUser()">
+            <div class="form-inline">
+                <label for="age">Age</label>
+                <input type="text" name="age" class="form-control mt-2" [(ngModel)]="user.age">
+            </div>
+            <legend class="col-form-label col-sm-2 pt-0 mt-4">Gender</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" [(ngModel)]="user.gender" value="Male">
+                    <label class="form-check-label">Male</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" [(ngModel)]="user.gender" value="Female">
+                    <label class="form-check-label">Female</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
