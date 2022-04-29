@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Appointment } from '../models/appointment';
+import { AppointmentDetails } from '../models/appointmentDetails';
 import { User } from '../models/user';
 
 @Injectable({
@@ -16,8 +17,8 @@ export class AppointmentService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  getAppointments(id: number): Observable<Appointment[]> {
-    return this.httpClient.get<Appointment[]>(`${this.baseUrl}/${id}`);
+  getAppointments(id: number): Observable<AppointmentDetails[]> {
+    return this.httpClient.get<AppointmentDetails[]>(`${this.baseUrl}/${id}`);
   }
 
   book(model: any) {

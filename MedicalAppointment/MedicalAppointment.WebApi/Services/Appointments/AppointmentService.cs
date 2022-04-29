@@ -6,7 +6,6 @@ using MedicalAppointment.WebApi.Services.Appointments.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,25 +29,17 @@ namespace MedicalAppointment.WebApi.Services.Appointments
             return this.mapper.Map<AppointmentModel>(appointment);
         }
 
-        public async Task<IEnumerable<AppointmentModel>> GetAppointmentsByUserIdAsync(int id)
+        public async Task<IEnumerable<AppointmentDetailsModel>> GetAppointmentsByUserIdAsync(int id)
         {
             var appointments = await this.dbContext.Appointments.Where(ap => ap.AppUserId == id)
-                .ProjectTo<AppointmentModel>(this.mapper.ConfigurationProvider)
+                .ProjectTo<AppointmentDetailsModel>(this.mapper.ConfigurationProvider)
                 .ToListAsync();
 
             return appointments;
-
-            //return this.mapper.Map<IEnumerable<AppointmentModel>>(appointments);
         }
 
         public async Task<AppointmentModel> BookAppointmentAsync(AppointmentModel appointment)
         {
-
-            if (appointment.Date.Date < DateTime.UtcNow)
-            {
-                return null;
-            }
-
             bool isbBooked = IsBooked(appointment.Date.Date, appointment.PhysicianId);
 
             if (isbBooked)

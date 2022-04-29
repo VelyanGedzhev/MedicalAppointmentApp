@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from 'src/app/core/models/appointment';
+import { AppointmentDetails } from 'src/app/core/models/appointmentDetails';
 import { AppointmentService } from 'src/app/core/services/appointment.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AppointmentService } from 'src/app/core/services/appointment.service';
   styleUrls: ['./appointments-list.component.css']
 })
 export class AppointmentsListComponent implements OnInit {
-  appointments: Appointment[];
+  appointments: AppointmentDetails[];
 
   constructor(private appointmentService: AppointmentService) { }
 

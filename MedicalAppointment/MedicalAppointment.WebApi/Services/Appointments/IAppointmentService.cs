@@ -7,7 +7,7 @@ namespace MedicalAppointment.WebApi.Services.Appointments
     public interface IAppointmentService
     {
         Task<AppointmentModel> GetAppointmentByIdAsync(int id);
-        Task<IEnumerable<AppointmentModel>> GetAppointmentsByUserIdAsync(int id);
+        Task<IEnumerable<AppointmentDetailsModel>> GetAppointmentsByUserIdAsync(int id);
         Task<AppointmentModel> BookAppointmentAsync(AppointmentModel appointment);
     }
 }

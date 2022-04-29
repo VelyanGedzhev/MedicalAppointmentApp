@@ -13,6 +13,10 @@ namespace MedicalAppointment.WebApi.Infrastructure
             this.CreateMap<AppUser, UserModel>().ReverseMap();
             this.CreateMap<Physician, PhysicianModel>();
             this.CreateMap<Appointment, AppointmentModel>();
+            this.CreateMap<Appointment, AppointmentDetailsModel>()
+                .ForMember(
+                    d => d.Date,
+                    cfg => cfg.MapFrom(s => s.Date.ToString("d")));
             this.CreateMap<UserEditModel, AppUser>();
         }
     }

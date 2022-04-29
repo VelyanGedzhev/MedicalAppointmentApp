@@ -18,7 +18,7 @@ namespace MedicalAppointment.WebApi.Controllers
 
         [Authorize]
         [HttpGet("{id}")]
-        public async Task<IEnumerable<AppointmentModel>> GetAppointments(int id)
+        public async Task<IEnumerable<AppointmentDetailsModel>> GetAppointments(int id)
         {
             return await this.appointmentService.GetAppointmentsByUserIdAsync(id);
         }

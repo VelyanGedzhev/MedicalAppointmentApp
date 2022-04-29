@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Appointment } from 'src/app/core/models/appointment';
+import { AppointmentDetails } from 'src/app/core/models/appointmentDetails';
 
 @Component({
   selector: 'app-appointment-details',
@@ -8,7 +8,7 @@ import { Appointment } from 'src/app/core/models/appointment';
 })
 export class AppointmentDetailsComponent implements OnInit {
   
-  @Input() appointment: Appointment;
+  @Input() appointment: AppointmentDetails;
   
   constructor() { }
 
