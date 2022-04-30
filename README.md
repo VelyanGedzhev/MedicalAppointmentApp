@@ -1,7 +1,6 @@
 # 
 # :hospital: MedApp
-Web app for booking a medical examination appointment.
-
+Web app for booking a medical examination appointment and my first attempt with Angular.
 ## Table of Contents
 * [General Info](#information_source-general-information)
 * [Setup](#bulb-setup)
